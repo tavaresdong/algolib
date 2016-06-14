@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1465888920 source:d:\我的坚果云\study\algorithm\algorithms\algorithms\main.cpp
+	<iostream>
+	"leetcode/Leetcode.h"
+
+1465888725 d:\我的坚果云\study\algorithm\algorithms\algorithms\leetcode\leetcode.h
+	<string>
+
+1465903437 source:d:\我的坚果云\study\algorithm\algorithms\algorithms_cpp\leetcode\reversestring.cpp
+	"Leetcode.h"
+
+1465903643 d:\我的坚果云\study\algorithm\algorithms\algorithms_cpp\leetcode\leetcode.h
+	<string>
+	<vector>
+	<set>
+	<algorithm>
+	<iostream>
+
+1465903349 source:d:\我的坚果云\study\algorithm\algorithms\algorithms_cpp\main.cpp
+	<iostream>
+	"leetcode/Leetcode.h"
+

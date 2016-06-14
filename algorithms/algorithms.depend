@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1465888920 source:d:\我的坚果云\study\algorithm\algorithms\algorithms\main.cpp
-	<iostream>
-	"leetcode/Leetcode.h"
-
-1465888725 d:\我的坚果云\study\algorithm\algorithms\algorithms\leetcode\leetcode.h
-	<string>
-

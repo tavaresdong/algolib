@@ -1,5 +1,4 @@
 #include "Leetcode.h"
-#include <algorithm>
 
 using namespace leetcode;
 
