@@ -1,0 +1,12 @@
+Problem Set 1 -- 2D Peak Finding
+
+We include all of the source and testing files in this directory.
+
+Make changes to peak_finder_2d.py and upload it to https://alg.csail.mit.edu in the corresponding submission slot.
+
+Files included:
+* .txt files - Text files with data for testing purposes.
+* run.sh - This is a bash script for running the testing.
+* test-ps1-part2.py - Contains unit tests for the peak finding code.
+* utils_2d.py - Utility functions for the source code.
+
