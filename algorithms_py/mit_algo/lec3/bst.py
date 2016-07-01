@@ -22,6 +22,23 @@ def find_nd(root, t):
     return None
 
 
+def successor(cur):
+    """Find successor of node with value t
+
+    :param t: the value to start
+    :return:the node contianing value next-larger to t
+    """
+    if cur is not None:
+        if cur.right is not None:
+            return find_min(cur.right)
+        else:
+            while cur.parent is not None \
+                    and cur.parent.right is cur:
+                cur = cur.parent
+            return cur.parent
+    return None
+
+
 
 
 class BST(object):
@@ -62,6 +79,26 @@ class BST(object):
             else:
                 node = node.left
         return None
+
+
+
+    def range(self, begin, end):
+        '''
+        return the values in this tree in between begin and end
+        :param begin: the begin value
+        :param end: the end value
+        :return: a list of the value in [begin, end]
+        '''
+        node = self.root
+        ret = 0
+        while node.left is not None and node.key > begin:
+            node = node.left
+        while node is not None and node.key <= end:
+            if node.key >= begin:
+                ret += 1
+            node = successor(node)
+        return ret
+
 
     def delete(self, t):
         return self.delete_from_node(self.root, t)
@@ -107,11 +144,13 @@ class BST(object):
                 # After switched key, delete the successor directly(zero/one child case)
                 return self.delete_from_node(succ, t)
 
+    def size(self):
+        return 0
 
 
     def delete_min(self):
-        """
-            remove the smallest (left most)　element in the BST
+        """Delete the minimum element
+        Remove the smallest (left most)　element in the BST
         """
         if self.root is None:
             return None, None
@@ -190,20 +229,9 @@ def test(args=None, BSTType=BST):
     print(tree)
     for item in items:
         tree.insert(item)
-        print()
+        print("size of the tree:", tree.size())
         print(tree)
-    tree.delete(9)
-    print()
-    print(tree)
-    tree.delete(1)
-    print()
-    print(tree)
-    tree.delete(5)
-    tree.delete(7)
-    tree.delete(6)
-    print()
-    print(tree)
-
+    print("range between 3 and 20 has #", tree.range(3, 20))
 
 
 if __name__ == '__main__':

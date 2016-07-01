@@ -1,13 +1,23 @@
 import mit_algo.lec3.bst
 
+
 def height(node):
     if node is None:
         return -1
     else:
         return node.height
 
-def update_height(node):
+
+def size(node):
+    if node is None:
+        return 0
+    else:
+        return node.size
+
+
+def update_node_info(node):
     node.height = max(height(node.left), height(node.right)) + 1
+    node.size = size(node.left) + size(node.right) + 1
 
 class AVL(mit_algo.lec3.bst.BST):
 
@@ -26,8 +36,8 @@ class AVL(mit_algo.lec3.bst.BST):
             x.right.parent = x
         y.left = x
         x.parent = y
-        update_height(x)
-        update_height(y)
+        update_node_info(x)
+        update_node_info(y)
         return y
 
     def right_rotate(self, x):
@@ -45,8 +55,8 @@ class AVL(mit_algo.lec3.bst.BST):
                 x.left.parent = x
             y.right = x
             x.parent = y
-        update_height(x)
-        update_height(y)
+        update_node_info(x)
+        update_node_info(y)
         return y
 
     def insert(self, t):
@@ -59,13 +69,19 @@ class AVL(mit_algo.lec3.bst.BST):
         if parent is not None:
             self.rebalance(parent)
 
+    def size(self):
+        if self.root is None:
+            return 0
+        else:
+            return self.root.size
+
     def rebalance(self, node):
         """
         Rebalance the tree, from bottom to top
         """
         cur = node
         while cur is not None:
-            update_height(cur)
+            update_node_info(cur)
             left_ht = height(cur.left)
             right_ht = height(cur.right)
             if left_ht - right_ht > 1:
@@ -86,6 +102,37 @@ class AVL(mit_algo.lec3.bst.BST):
     def delete_min(self):
         node, parent = mit_algo.lec3.bst.BST.delete_min(self)
         self.rebalance(parent)
+
+
+    def num_nodes_smaller_than(self, t):
+        '''
+        Return # of nodes with value smaller than t,
+        in O(logn) time complexity
+        :param t: the value to compare
+        :return: num of nodes smaller than t
+        '''
+        count = 0
+        node = self.root
+        while node is not None:
+            if node.key == t:
+                return count + size(node.left)
+            elif node.key < t:
+                count = count + size(node.left) + 1
+                node = node.right
+            else:
+                node = node.left
+        return count
+
+    def range(self, begin, end):
+        '''
+        return the values in this tree in between begin and end
+        :param begin: the begin value
+        :param end: the end value
+        :return: a list of the value in [begin, end]
+        '''
+        return self.num_nodes_smaller_than(end + 1) \
+                - self.num_nodes_smaller_than(begin)
+
 
 def test(args=None):
     mit_algo.lec3.bst.test(args, BSTType=AVL)
