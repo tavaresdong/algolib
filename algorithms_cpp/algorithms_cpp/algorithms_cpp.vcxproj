@@ -22,9 +22,12 @@
     <ClCompile Include="leetcode\hash\BullsAndCows.cpp" />
     <ClCompile Include="leetcode\hash\IntersectionOfTwoArrays.cpp" />
     <ClCompile Include="leetcode\hash\IntersectionOfTwoArraysII.cpp" />
-    <ClCompile Include="leetcode\main.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="algo\HeapSort.h" />
+    <ClInclude Include="algo\RadixSort.h" />
+    <ClInclude Include="ds\PriorityQueue.h" />
     <ClInclude Include="leetcode\Leetcode.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

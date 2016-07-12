@@ -27,3 +27,13 @@
 *.exe
 *.out
 *.app
+
+# data files
+*.fa
+*.png
+*.in
+*.out
+
+# log files
+*.tlog
+*.xml

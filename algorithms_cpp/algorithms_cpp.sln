@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E140B10F-99EF-42C2-9ABF-166B2B3D369B}"
 	ProjectSection(SolutionItems) = preProject
 		algorithms_cpp\leetcode\Leetcode.h = algorithms_cpp\leetcode\Leetcode.h
-		algorithms_cpp\leetcode\main.cpp = algorithms_cpp\leetcode\main.cpp
 	EndProjectSection
 EndProject
 Global

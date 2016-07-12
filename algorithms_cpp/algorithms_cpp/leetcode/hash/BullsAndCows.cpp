@@ -6,7 +6,7 @@ string BullsAndCows::getHint(string secret, string guess)
 {
     int bulls = 0, cows = 0;
     map<char, int> digitCount;
-    for (int i = 0; i < secret.size(); i++)
+    for (size_t i = 0; i < secret.size(); i++)
     {
         char s = secret[i], g = guess[i];
         if (s == g)

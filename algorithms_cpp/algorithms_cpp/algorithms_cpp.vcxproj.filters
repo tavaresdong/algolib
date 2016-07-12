@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="leetcode\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="leetcode\hash\BullsAndCows.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -27,9 +24,21 @@
     <ClCompile Include="leetcode\hash\IntersectionOfTwoArraysII.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leetcode\Leetcode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\PriorityQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\HeapSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\RadixSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
