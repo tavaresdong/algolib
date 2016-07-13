@@ -27,6 +27,7 @@
   <ItemGroup>
     <ClInclude Include="algo\HeapSort.h" />
     <ClInclude Include="algo\RadixSort.h" />
+    <ClInclude Include="algo\MergeSort.h" />
     <ClInclude Include="ds\PriorityQueue.h" />
     <ClInclude Include="leetcode\Leetcode.h" />
   </ItemGroup>
