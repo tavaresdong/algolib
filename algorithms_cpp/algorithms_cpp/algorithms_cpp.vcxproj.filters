@@ -44,5 +44,11 @@
     <ClInclude Include="algo\MergeSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="algo\InsertionSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\QuickSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
