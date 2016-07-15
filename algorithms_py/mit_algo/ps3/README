@@ -1,0 +1,12 @@
+6.006 Problem Set 3 -- Heap sort
+
+Make changes to ps3b.py and upload it to https://6.006.scripts.mit.edu/grading/ in the corresponding submission slot.
+
+Files included:
+* run.sh - This is a bash script for running the testing.
+* ps3b.py - Source file containing two empty functions you should implement.
+* test-ps3-partB.py - Contains unit tests for your code.
+* utils.py - Utility functions for the source code.
+* ps3b-sampledata:
+  * .in files - Text files with input data for testing purposes.
+  * .out files - Text files with the correct answer for each set of test data.

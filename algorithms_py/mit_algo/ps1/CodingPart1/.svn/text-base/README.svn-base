@@ -1,0 +1,12 @@
+6.006 Problem Set 1 -- 1D Peak Finding
+
+We include all of the source and testing files in this directory.
+
+Make changes to peak_finder_1d.py and upload it to https://alg.csail.mit.edu in the corresponding submission slot.
+
+Files included:
+* .txt files - Text files with data for testing purposes.
+* run.sh - This is a bash script for running the testing.
+* peak_finder_1d.py - Source file containing peak finding code.  This is the main file you're concerned with. Fill in the quick_find_1d_peak function
+* test-ps1-part1.py - Contains unit tests for the peak finding code.
+* utils_1d.py - Utility functions for the source code.

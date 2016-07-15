@@ -1,0 +1,73 @@
+#!/usr/bin/python
+import unittest
+import profile
+import pstats
+from peak_finder_1d import *
+from utils_1d import *
+
+# Checks correctness of algorithm
+def isCorrect(filename):
+	array = read_input(filename)
+        ans = quick_find_1d_peak(array)
+	# Check bounds
+        if ans < 0 or ans >= len(array):
+	    return False
+	# Check left neighbor
+        if (ans > 0):
+            if array[ans] < array[ans - 1]:
+		return False
+	# Check right neighbor
+        if (ans < len(array)-1):
+            if array[ans] < array[ans + 1]:
+		return False
+	return True
+
+# Checks speed of algorithm compared to the naive peak finder
+def isFast(filename):
+	global array
+	array = read_input(filename)
+        profile.run('slow_find_1d_peak(array)', '1d_slow_stats')
+        profile.run('quick_find_1d_peak(array)', '1d_quick_stats')
+        p1 = pstats.Stats('1d_slow_stats')
+        slow_time = p1.total_tt
+        p2 = pstats.Stats('1d_quick_stats')
+        quick_time = p2.total_tt
+	# Sanity check that we've improved the speed of the algorithm.
+        return (slow_time > 2 * quick_time)
+
+# Testing framework for the 1D case of the peak finding algorithm.
+class TestPS1Part1(unittest.TestCase):
+
+    def setUp(self):
+        pass
+
+    def test1(self):
+		doesPass = isCorrect("1_small_random.txt")
+		self.assertTrue(doesPass)
+
+    def test2(self):
+		doesPass = isCorrect("2_medium_random.txt")
+		self.assertTrue(doesPass)
+
+    def test3(self):
+		doesPass = isCorrect("3_big_random.txt")
+		self.assertTrue(doesPass)
+
+    def test4(self):
+		doesPass = isCorrect("4_ascending.txt")
+		self.assertTrue(doesPass)
+
+    def test5(self):
+		doesPass = isCorrect("5_descending.txt")
+		self.assertTrue(doesPass)
+
+
+    def test6(self):
+		doesPass = isCorrect("6_one_peak.txt")
+		fastEnough = isFast("6_one_peak.txt")
+		self.assertTrue(doesPass)
+		self.assertTrue(fastEnough)
+
+if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestPS1Part1)
+    unittest.TextTestRunner(verbosity=2).run(suite)
