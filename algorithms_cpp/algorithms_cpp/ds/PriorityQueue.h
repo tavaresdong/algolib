@@ -7,7 +7,7 @@
 #include <vector>
 
 
-namespace ds
+namespace algo
 {
 	// This is an implementation of an Max Heap, meaning the top item has the
 	// Maximum priority

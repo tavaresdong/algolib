@@ -106,7 +106,7 @@ namespace algo
         std::cout << "After sorting" << std::endl;
         intro_sort(v.begin(), v.end());
         std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
-        for (int i = 0; i < v.size() - 2; i++)
+        for (size_t i = 0; i < v.size() - 2; i++)
             assert(v[i] <= v[i + 1]);
     }
 }

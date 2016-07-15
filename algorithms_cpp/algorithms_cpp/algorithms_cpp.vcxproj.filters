@@ -50,5 +50,11 @@
     <ClInclude Include="algo\QuickSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ds\DirectedGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\UndirectedGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
