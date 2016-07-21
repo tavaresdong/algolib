@@ -82,6 +82,38 @@ namespace algo
         }
     }
 
+    template <typename RandomIter>
+    void __unguarded_insertion_sort(RandomIter begin, RandomIter end)
+    {
+        typedef typename std::iterator_traits<RandomIter>::value_type T;
+        for (RandomIter i = begin; i != end; ++i)
+        {
+            T value = *i;
+            RandomIter cur = i;
+            --cur;
+            while (value < *cur)
+            {
+                *(cur + 1) = *cur;
+                --cur;
+            }
+            *(cur + 1) = value;
+        }
+    }
+
+
+    template <typename RandomIter>
+    void final_insertion_sort(RandomIter begin, RandomIter end)
+    {
+        if (end - begin > _stl_threshold)
+        {
+            insertion_sort(begin, begin + _stl_threshold);
+            __unguarded_insertion_sort(begin + _stl_threshold, end);
+        }
+        else
+        {
+            insertion_sort(begin, end);
+        }
+    }
 
     template <typename RandomIter>
     inline void intro_sort(RandomIter begin,
@@ -90,24 +122,28 @@ namespace algo
         if (begin != end)
         {
             _intro_loop(begin, end, __lg((end - begin) * 2));
-            insertion_sort(begin, end);
+            final_insertion_sort(begin, end);
         }
     }
 
     void test_intro_sort()
     {
-        srand(time(NULL));
-        std::vector<int> v;
-        for (int i = 0; i < 1000; i++) {
-            int ri = rand() % 1000;
-            v.push_back(ri);
+        for (int i = 0; i < 100; i++)
+        {
+            srand(time(NULL));
+            std::vector<int> v;
+            for (int i = 0; i < 1000; i++) {
+                int ri = rand() % 1000;
+                v.push_back(ri);
+            }
+            std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+            std::cout << "After sorting" << std::endl;
+            intro_sort(v.begin(), v.end());
+            std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+            for (size_t i = 0; i < v.size() - 2; i++)
+                assert(v[i] <= v[i + 1]);
         }
-        std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
-        std::cout << "After sorting" << std::endl;
-        intro_sort(v.begin(), v.end());
-        std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
-        for (size_t i = 0; i < v.size() - 2; i++)
-            assert(v[i] <= v[i + 1]);
+        
     }
 }
 #endif

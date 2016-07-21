@@ -22,6 +22,6 @@ int main()
     // algo::test_merge_sort();
     // algo::test_intro_sort();
     // algo::test_directed_graph();
-    algo::test_topological_sort();
+    algo::test_intro_sort();
 	return 0;
 }
