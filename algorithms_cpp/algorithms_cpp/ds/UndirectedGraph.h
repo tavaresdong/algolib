@@ -8,6 +8,7 @@
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 namespace algo
 {
@@ -31,7 +32,7 @@ namespace algo
     const std::set<T>& UndirectedGraph<T>::edgesFrom(T node) const
     {
         if (adjlists.find(node) == adjlists.end())
-            return std::set<T>();  // return an empty map
+            throw std::invalid_argument("node is not in the graph");  // return an empty map
         return adjlists.at(node);
     }
 

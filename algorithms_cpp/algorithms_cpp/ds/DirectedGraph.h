@@ -2,10 +2,12 @@
 #ifndef _DIRECTEDGRAPH_H_
 #define _DIRECTEDGRAPH_H_
 #include <map>
+#include <stack>
 #include <utility>
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 namespace algo
 {
@@ -18,6 +20,7 @@ namespace algo
         bool removeNode(T node);
         bool addEdge(T src, T dest, double weight);
         bool removeEdge(T src, T dest);
+        bool isDAG();
         const std::map<T, double>& edgesFrom(T node) const;
         iterator begin() { return adjlists.begin(); }
         iterator end() { return adjlists.end(); }
@@ -29,12 +32,63 @@ namespace algo
     const std::map<T, double>& DirectedGraph<T>::edgesFrom(T node) const
     {
         if (adjlists.find(node) == adjlists.end())
-            return std::map<T, double>();  // return an empty map
+            throw std::invalid_argument("node is not in graph");
         return adjlists.at(node);
     }
 
     template <typename T>
     DirectedGraph<T>::DirectedGraph() { }
+
+    template <typename T>
+    bool DirectedGraph<T>::isDAG()
+    {
+        // Using dfs to check if the graph contains a back edge
+        // 0 stands for white, 1 for gray and 2 for black
+        std::map<T, int> colors;
+        std::stack<T> st;
+        bool dag = true;
+        for (auto it : adjlists)
+        {
+            T key = it.first;
+            if (colors.find(key) == colors.end())
+            {
+                colors[key] = 1;
+                st.push(key);
+                while (!st.empty())
+                {
+                    T cur = st.top();
+                    bool finished = true;
+                    for (auto nb : edgesFrom(cur))
+                    {
+                        if (colors[nb.first] == 0)
+                        {
+                            // Meet an unvisited neighbor
+                            colors[nb.first] = 1;
+                            st.push(nb.first);
+                            finished = false;
+                        }
+                        else if (colors[nb.first] == 1)
+                        {
+                            // Back edge
+                            dag = false;
+                            break;
+                        }
+                    }
+                    if (dag == false)
+                        break;
+                    else if (finished)
+                    {
+                        // This node now is out of unvisited neighbors
+                        st.pop();
+                        colors[cur] = 2;
+                    }
+                }
+                if (dag == false)
+                    break;
+            }
+        }
+        return dag;
+    }
 
     template <typename T>
     bool DirectedGraph<T>::addNode(T node)
@@ -103,6 +157,26 @@ namespace algo
         assert(edges.find("terrific") != edges.end());
         for (auto key : graph)
             std::cout << key.first << std::endl;
+    }
+
+    void test_dag()
+    {
+        DirectedGraph<std::string> graph;
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addNode("D");
+        graph.addEdge("A", "B", 1);
+        graph.addEdge("A", "C", 1);
+        graph.addEdge("B", "D", 1);
+        graph.addEdge("C", "D", 1);
+        assert(graph.isDAG());
+        graph.addEdge("D", "A", 1);
+        assert(!graph.isDAG());
+        graph.removeEdge("D", "A");
+        graph.addNode("E");
+        graph.addEdge("E", "C", 1);
+        assert(graph.isDAG());
     }
 }
 

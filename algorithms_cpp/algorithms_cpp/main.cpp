@@ -21,6 +21,6 @@ int main()
     // algo::test_merge_sort();
     // algo::test_intro_sort();
     // algo::test_directed_graph();
-    algo::test_undirected_graph();
+    algo::test_dag();
 	return 0;
 }
