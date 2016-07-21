@@ -30,9 +30,10 @@
     <ClInclude Include="algo\QuickSort.h" />
     <ClInclude Include="algo\RadixSort.h" />
     <ClInclude Include="algo\MergeSort.h" />
-    <ClInclude Include="ds\DirectedGraph.h" />
-    <ClInclude Include="ds\PriorityQueue.h" />
-    <ClInclude Include="ds\UndirectedGraph.h" />
+    <ClInclude Include="algo\TopologicalSort.h" />
+    <ClInclude Include="algo\DirectedGraph.h" />
+    <ClInclude Include="algo\PriorityQueue.h" />
+    <ClInclude Include="algo\UndirectedGraph.h" />
     <ClInclude Include="leetcode\Leetcode.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -14,6 +14,7 @@ namespace algo
     template <typename T>
     class DirectedGraph {
         typedef typename std::map<T, std::map<T, double>>::iterator iterator;
+        typedef typename std::map<T, std::map<T, double>>::const_iterator const_iterator;
     public:
         DirectedGraph();
         bool addNode(T node);
@@ -24,6 +25,8 @@ namespace algo
         const std::map<T, double>& edgesFrom(T node) const;
         iterator begin() { return adjlists.begin(); }
         iterator end() { return adjlists.end(); }
+        const_iterator cbegin() const { return adjlists.cbegin(); }
+        const_iterator cend() const { return adjlists.cend(); }
     private:
         std::map<T, std::map<T, double>> adjlists;
     };

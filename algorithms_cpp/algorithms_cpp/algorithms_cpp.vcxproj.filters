@@ -32,9 +32,6 @@
     <ClInclude Include="leetcode\Leetcode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ds\PriorityQueue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="algo\HeapSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -50,10 +47,16 @@
     <ClInclude Include="algo\QuickSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ds\DirectedGraph.h">
+    <ClInclude Include="algo\TopologicalSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ds\UndirectedGraph.h">
+    <ClInclude Include="algo\DirectedGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\PriorityQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\UndirectedGraph.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
