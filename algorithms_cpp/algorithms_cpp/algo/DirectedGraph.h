@@ -21,8 +21,16 @@ namespace algo
         bool removeNode(T node);
         bool addEdge(T src, T dest, double weight);
         bool removeEdge(T src, T dest);
-        bool isDAG();
+
+        // Test if the graph is DAG(Directed Acyclic Graph)
+        bool isDAG() const;
+
+        // Return all neighbors (with edge weight) of a node
         const std::map<T, double>& edgesFrom(T node) const;
+
+        // Return Transpose graph of current Graph in O(V+E) (edges reversed)
+        DirectedGraph<T> transpose() const;
+
         iterator begin() { return adjlists.begin(); }
         iterator end() { return adjlists.end(); }
         const_iterator cbegin() const { return adjlists.cbegin(); }
@@ -43,7 +51,7 @@ namespace algo
     DirectedGraph<T>::DirectedGraph() { }
 
     template <typename T>
-    bool DirectedGraph<T>::isDAG()
+    bool DirectedGraph<T>::isDAG() const
     {
         // Using dfs to check if the graph contains a back edge
         // 0 stands for white, 1 for gray and 2 for black
@@ -143,6 +151,30 @@ namespace algo
         return true;
     }
 
+    template <typename T>
+    DirectedGraph<T> DirectedGraph<T>::transpose() const
+    {
+        DirectedGraph<T> trans_graph;
+
+        // Add all nodes to trans graph
+        for (auto nodelist : adjlists)
+        {
+            trans_graph.addNode(nodelist.first);
+        }
+
+        for (auto nodelist : adjlists)
+        {
+            T node = nodelist.first;
+            for (auto nb : nodelist.second)
+            {
+                trans_graph.addEdge(nb.first, node, nb.second);
+            }
+        }
+        
+        return trans_graph;
+    }
+    /*
+    
     void test_directed_graph()
     {
         DirectedGraph<std::string> graph;
@@ -181,6 +213,7 @@ namespace algo
         graph.addEdge("E", "C", 1);
         assert(graph.isDAG());
     }
+    */
 }
 
 #endif

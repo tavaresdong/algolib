@@ -27,6 +27,9 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="algo\test\kosaraju_test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leetcode\Leetcode.h">
@@ -57,6 +60,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="algo\UndirectedGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\Kosaraju.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\test\kosaraju_test.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
