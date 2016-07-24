@@ -6,7 +6,6 @@
 #include <stdexcept>
 #include <algorithm>
 #include <utility>
-#include <iostream>
 
 namespace algo
 {
