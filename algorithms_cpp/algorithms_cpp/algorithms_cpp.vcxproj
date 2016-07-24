@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="algo\test\hashtable_test.cpp" />
     <ClCompile Include="algo\test\kosaraju_test.cpp" />
     <ClCompile Include="leetcode\hash\BullsAndCows.cpp" />
     <ClCompile Include="leetcode\hash\IntersectionOfTwoArrays.cpp" />
@@ -26,12 +27,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="algo\Hashtable.h" />
     <ClInclude Include="algo\HeapSort.h" />
     <ClInclude Include="algo\InsertionSort.h" />
     <ClInclude Include="algo\Kosaraju.h" />
     <ClInclude Include="algo\QuickSort.h" />
     <ClInclude Include="algo\RadixSort.h" />
     <ClInclude Include="algo\MergeSort.h" />
+    <ClInclude Include="algo\test\hashtable_test.h" />
     <ClInclude Include="algo\test\kosaraju_test.h" />
     <ClInclude Include="algo\TopologicalSort.h" />
     <ClInclude Include="algo\DirectedGraph.h" />

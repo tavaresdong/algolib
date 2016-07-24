@@ -1,10 +1,10 @@
 #include <iostream>
-#include "algo/test/kosaraju_test.h"
+#include "algo/test/hashtable_test.h"
 
 using namespace algo;
 
 int main()
 {
-    algo::test_kosaraju();
+    algo::test_hashtable();
     return 0;
 }
