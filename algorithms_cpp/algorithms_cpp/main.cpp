@@ -1,10 +1,10 @@
 #include <iostream>
-#include "algo/test/hashtable_test.h"
+#include "algo/test/selection_test.h"
 
 using namespace algo;
 
 int main()
 {
-    algo::test_hashtable();
+    algo::minmax_test();
     return 0;
 }

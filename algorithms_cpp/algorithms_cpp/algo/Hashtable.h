@@ -86,6 +86,7 @@ namespace algo
             }
             catch (const std::bad_alloc& b)
             {
+                b.what();
                 return nullptr;
             }
         }
