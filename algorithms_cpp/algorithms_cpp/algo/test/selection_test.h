@@ -8,6 +8,7 @@ namespace algo
 {
     void minmax_test();
     void test_randomized_partition();
+    void test_select();
 }
 
 #endif

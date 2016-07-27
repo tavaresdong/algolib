@@ -6,8 +6,11 @@
 #include <functional>
 #include <utility>
 #include <cstdlib>
+#include <stdexcept>
 #include <ctime>
+#include <cassert>
 
+#include "InsertionSort.h"
 
 namespace algo
 {
@@ -131,6 +134,37 @@ namespace algo
     }
 
     template <typename RandomIter>
+    RandomIter _partition_retain_pivot(RandomIter begin,
+        RandomIter end,
+        RandomIter piv_pos)
+    {
+        typedef std::iterator_traits<RandomIter>::value_type T;
+        T pivot = *piv_pos;
+        std::iter_swap(begin, piv_pos);
+        RandomIter old_begin = begin;
+        begin++;
+        while (true)
+        {
+            while (*begin < pivot)
+                begin++;
+            --end;
+            while (*end > pivot)
+                end--;
+            if (!(begin < end))
+            {
+                // Put pivot value here
+                // left <= but begin itself may be bigger than pivot!
+                // Right half(including self) : >= pivot
+                // Left half : <= pivot
+                std::iter_swap(old_begin, std::prev(begin));
+                return std::prev(begin);
+            }
+            std::iter_swap(begin, end);
+            begin++;
+        }
+    }
+
+    template <typename RandomIter>
     RandomIter randomized_partition(RandomIter first, RandomIter last)
     {
         std::srand(std::time(0));
@@ -159,6 +193,62 @@ namespace algo
             {
                 last = q;
             }
+        }
+    }
+
+    // Insert-sort on this at most 5 element range
+    // And return the median
+    template <typename RandomIter>
+    RandomIter __median(RandomIter first, RandomIter last)
+    {
+        insertion_sort(first, last);
+        return first + (std::distance(first, last) / 2);
+    }
+    
+    // Worst case O(n) to find ith element
+    template <typename RandomIter>
+    RandomIter select(RandomIter first, RandomIter last, size_t ind)
+    {
+        if (last <= first)
+            return last;
+        if (ind > std::distance(first, last))
+            throw std::out_of_range("ind: " + ind);
+
+        if (std::distance(first, last) <= 5)
+        {
+            insertion_sort(first, last);
+            return first + (ind - 1);
+        }
+
+        RandomIter medians = first;
+        RandomIter grp_begin = first, grp_end = first;
+        for (; grp_begin != last; grp_begin = grp_end)
+        {
+            grp_end = (std::distance(grp_begin, last) > 5) ? (grp_begin + 5) : last;
+            assert(grp_end <= last);
+            RandomIter median_of_five = __median(grp_begin, grp_end);
+            std::iter_swap(medians, median_of_five);
+            assert(medians < last);
+            medians = std::next(medians);
+        }
+
+        // Recurse to find median of medians
+        RandomIter median_of_medians = select(first, medians, 
+            std::distance(first, medians) / 2);
+
+        // Partition around this median of medians
+        RandomIter pos = _partition_retain_pivot(first, last, median_of_medians);
+
+        size_t k = std::distance(first, pos) + 1;
+        if (ind == k)
+            return pos;
+        else if (ind > k)
+        {
+            return select(std::next(pos), last, ind - k);
+        }
+        else
+        {
+            return select(first, pos, ind);
         }
     }
 }

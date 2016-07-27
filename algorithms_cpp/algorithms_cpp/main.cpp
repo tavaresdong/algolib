@@ -5,6 +5,6 @@ using namespace algo;
 
 int main()
 {
-    algo::test_randomized_partition();
+    algo::test_select();
     return 0;
 }

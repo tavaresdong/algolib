@@ -40,13 +40,6 @@ namespace algo
         }
     }
 
-    void test_insertion_sort()
-    {
-        std::vector<int> v = { 3, 5, 4, 11, 7, 9, 6 };
-        insertion_sort(v.begin(), v.end());
-        for (auto val : v)
-            std::cout << val << std::endl;
-    }
 }
 
 
