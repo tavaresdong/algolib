@@ -8,7 +8,6 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <ctime>
-#include <cassert>
 
 #include "InsertionSort.h"
 
@@ -225,10 +224,8 @@ namespace algo
         for (; grp_begin != last; grp_begin = grp_end)
         {
             grp_end = (std::distance(grp_begin, last) > 5) ? (grp_begin + 5) : last;
-            assert(grp_end <= last);
             RandomIter median_of_five = __median(grp_begin, grp_end);
             std::iter_swap(medians, median_of_five);
-            assert(medians < last);
             medians = std::next(medians);
         }
 
