@@ -33,6 +33,8 @@ namespace algo
             return b;
     }
 
+    // Here end points to one past the last
+    // Element of the range
     template <typename RandomIter, typename T>
     RandomIter _partition(RandomIter begin,
         RandomIter end,

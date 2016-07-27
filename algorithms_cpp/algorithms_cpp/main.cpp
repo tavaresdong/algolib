@@ -5,6 +5,6 @@ using namespace algo;
 
 int main()
 {
-    algo::minmax_test();
+    algo::test_randomized_partition();
     return 0;
 }

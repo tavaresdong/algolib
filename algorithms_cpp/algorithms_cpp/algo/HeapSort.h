@@ -14,10 +14,10 @@ namespace algo
     template <typename RandomIter, typename Comparator>
     void max_heapify(RandomIter first,
         RandomIter last,
-        typename iterator_traits<RandomIter>::difference_type heapify_pos,
+        size_t heapify_pos,
         Comparator comp)
     {
-        typename iterator_traits<RandomIter>::difference_type max_dist
+        typename std::iterator_traits<RandomIter>::difference_type max_dist
             = std::distance(first, last);
         // Attention: you can only swap with one branch,
         // Otherwise both subtrees' heap property are destroyed
@@ -54,7 +54,7 @@ namespace algo
     void build_max_heap(RandomIter first, RandomIter last, Comparator comp)
     {
         // Build a max heap based on comp
-        iterator_traits<RandomIter>::difference_type length
+        std::iterator_traits<RandomIter>::difference_type length
             = std::distance(first, last);
         auto heapify_pos = length / 2 - 1;
         for (; heapify_pos >= 0; heapify_pos--)

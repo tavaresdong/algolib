@@ -5,6 +5,9 @@
 #include <iterator>
 #include <functional>
 #include <utility>
+#include <cstdlib>
+#include <ctime>
+
 
 namespace algo
 {
@@ -104,6 +107,59 @@ namespace algo
             }
         }
         return std::pair<RandomIter, RandomIter>(small, big);
+    }
+
+    // Here end points to one past the last
+    // Element of the range
+    template <typename RandomIter, typename T>
+    RandomIter _partition(RandomIter begin,
+        RandomIter end,
+        T pivot)
+    {
+        while (true)
+        {
+            while (*begin < pivot)
+                begin++;
+            --end;
+            while (*end > pivot)
+                end--;
+            if (!(begin < end))
+                return begin;
+            std::iter_swap(begin, end);
+            begin++;
+        }
+    }
+
+    template <typename RandomIter>
+    RandomIter randomized_partition(RandomIter first, RandomIter last)
+    {
+        std::srand(std::time(0));
+        int pivot = std::rand() % std::distance(first, last);
+        return _partition(first, last, *(first + pivot));
+    }
+
+    // Find the ith element in this range (i starts from 1 to size())
+    template <typename RandomIter>
+    RandomIter randomized_select(RandomIter first, RandomIter last, size_t ind)
+    {
+        while (true)
+        {
+            if (first == last)
+                return first;
+            RandomIter q = randomized_partition(first, last);
+            size_t k = std::distance(first, q) + 1;
+            if (ind == k)
+                return q;
+            else if (ind > k)
+            {
+                first = std::next(q);
+                ind = ind - k;
+            }
+            else
+            {
+                last = q;
+            }
+        }
     }
 }
 #endif

@@ -27,13 +27,13 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="algo\test\kosaraju_test.cpp">
+    <ClCompile Include="algo\Selection.h">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="algo\test\hashtable_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="algo\Selection.h">
+    <ClCompile Include="algo\test\kosaraju_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="algo\test\selection_test.cpp">
@@ -74,13 +74,13 @@
     <ClInclude Include="algo\Kosaraju.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="algo\test\kosaraju_test.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="algo\Hashtable.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="algo\test\hashtable_test.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\test\kosaraju_test.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="algo\test\selection_test.h">
