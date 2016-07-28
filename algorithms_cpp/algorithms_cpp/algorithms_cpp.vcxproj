@@ -23,6 +23,7 @@
     <ClCompile Include="algo\test\hashtable_test.cpp" />
     <ClCompile Include="algo\test\kosaraju_test.cpp" />
     <ClCompile Include="algo\test\selection_test.cpp" />
+    <ClCompile Include="algo\test\string_match_test.cpp" />
     <ClCompile Include="leetcode\hash\BullsAndCows.cpp" />
     <ClCompile Include="leetcode\hash\IntersectionOfTwoArrays.cpp" />
     <ClCompile Include="leetcode\hash\IntersectionOfTwoArraysII.cpp" />
@@ -36,9 +37,11 @@
     <ClInclude Include="algo\QuickSort.h" />
     <ClInclude Include="algo\RadixSort.h" />
     <ClInclude Include="algo\MergeSort.h" />
+    <ClInclude Include="algo\StringMatching.h" />
     <ClInclude Include="algo\test\hashtable_test.h" />
     <ClInclude Include="algo\test\kosaraju_test.h" />
     <ClInclude Include="algo\test\selection_test.h" />
+    <ClInclude Include="algo\test\string_match_test.h" />
     <ClInclude Include="algo\TopologicalSort.h" />
     <ClInclude Include="algo\DirectedGraph.h" />
     <ClInclude Include="algo\PriorityQueue.h" />

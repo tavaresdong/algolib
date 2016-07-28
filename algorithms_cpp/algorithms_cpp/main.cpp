@@ -1,10 +1,10 @@
 #include <iostream>
-#include "algo/test/selection_test.h"
+#include "algo/test/string_match_test.h"
 
 using namespace algo;
 
 int main()
 {
-    algo::test_select();
+    algo::test_next();
     return 0;
 }

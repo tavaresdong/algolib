@@ -39,6 +39,9 @@
     <ClCompile Include="algo\test\selection_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="algo\test\string_match_test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leetcode\Leetcode.h">
@@ -84,6 +87,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="algo\test\selection_test.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\StringMatching.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="algo\test\string_match_test.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
