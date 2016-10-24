@@ -48,6 +48,7 @@
     <ClInclude Include="algo\PriorityQueue.h" />
     <ClInclude Include="algo\UndirectedGraph.h" />
     <ClInclude Include="leetcode\Leetcode.h" />
+    <ClInclude Include="util\ycalloc.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E026EF48-DA9D-4D2D-B268-5893AE745EEF}</ProjectGuid>
